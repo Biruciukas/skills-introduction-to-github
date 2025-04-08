@@ -1,0 +1,47 @@
+describe('Calculator prototype test', () => { // TEST SUITE PAVADINIMAS
+    it('Add 2+5=7', () => { // IT - TEST CASE PAVADINIMAS
+      cy.visit('https://testsheepnz.github.io/BasicCalculator')
+      cy.get('[data-testid="number1Field"]').type('2') //GET FIRST NUMBER IR TYPE
+      cy.get('[data-testid="number2Field"]').type('5') //GET SECOND NUMBER IR TYPE
+      cy.get('[data-testid="selectOperationDropdown"]').select('Add') //SELECT OPERATION 1 arba 'Add'
+      cy.get('[data-testid="calculateButton"]').click()//GET CALCULATE MYGTUKAS ir CLICK
+      cy.get('[data-testid="numberAnswerField"]').should('have.value', '7') //GET ANSWER IR SHOULD HAVE VALUE
+    })
+
+    it('Subtract 5-3=2', () => { // IT - TEST CASE PAVADINIMAS
+        cy.visit('https://testsheepnz.github.io/BasicCalculator')
+        cy.get('[data-testid="number1Field"]').type('5') //GET FIRST NUMBER IR TYPE
+        cy.get('[data-testid="number2Field"]').type('3') //GET SECOND NUMBER IR TYPE
+        cy.get('[data-testid="selectOperationDropdown"]').select('Subtract') //SELECT OPERATION 1 arba 'Add'
+        cy.get('[data-testid="calculateButton"]').click()//GET CALCULATE MYGTUKAS ir CLICK
+        cy.get('[data-testid="numberAnswerField"]').should('have.value', '2') //GET ANSWER IR SHOULD HAVE VALUE
+      })
+
+      it('Multiply 5*3=15', () => { // IT - TEST CASE PAVADINIMAS
+        cy.visit('https://testsheepnz.github.io/BasicCalculator')
+        cy.get('[data-testid="number1Field"]').type('5') //GET FIRST NUMBER IR TYPE
+        cy.get('[data-testid="number2Field"]').type('3') //GET SECOND NUMBER IR TYPE
+        cy.get('[data-testid="selectOperationDropdown"]').select('Multiply') //SELECT OPERATION 1 arba 'Add'
+        cy.get('[data-testid="calculateButton"]').click()//GET CALCULATE MYGTUKAS ir CLICK
+        cy.get('[data-testid="numberAnswerField"]').should('have.value', '15') //GET ANSWER IR SHOULD HAVE VALUE
+      })
+
+      it('Divide 15:3=5', () => { // IT - TEST CASE PAVADINIMAS
+        cy.visit('https://testsheepnz.github.io/BasicCalculator')
+        cy.get('[data-testid="number1Field"]').type('15') //GET FIRST NUMBER IR TYPE
+        cy.get('[data-testid="number2Field"]').type('3') //GET SECOND NUMBER IR TYPE
+        cy.get('[data-testid="selectOperationDropdown"]').select('Divide') //SELECT OPERATION 1 arba 'Add'
+        cy.get('[data-testid="calculateButton"]').click()//GET CALCULATE MYGTUKAS ir CLICK
+        cy.get('[data-testid="numberAnswerField"]').should('have.value', '5') //GET ANSWER IR SHOULD HAVE VALUE
+      })
+
+      it('Concatenate 22 ir 33', () => { // IT - TEST CASE PAVADINIMAS
+        cy.visit('https://testsheepnz.github.io/BasicCalculator')
+        cy.get('[data-testid="number1Field"]').type('22') //GET FIRST NUMBER IR TYPE
+        cy.get('[data-testid="number2Field"]').type('33') //GET SECOND NUMBER IR TYPE
+        cy.get('[data-testid="selectOperationDropdown"]').select('Concatenate') //SELECT OPERATION 1 arba 'Add'
+        cy.get('[data-testid="calculateButton"]').click()//GET CALCULATE MYGTUKAS ir CLICK
+        cy.get('[data-testid="numberAnswerField"]').should('have.value', '2233') //GET ANSWER IR SHOULD HAVE VALUE
+      })
+
+    })
